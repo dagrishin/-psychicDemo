@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Ваши числа: {{ numbers }}</p>
+<div style="display: flex">
+    {% for key, value in response.items %}
+        <div style="border:1px; border-style: inset">
+            <p>{{ key }} экстрасенс:</p>
+            <p>Предыдущие попытки: {{ value.state }}</p>
+            <p>Статистика: {{ value.confidence_level}}</p>
+        </div>
+    {% endfor %}
+</div>
+<form action="" method="post">
+        {% csrf_token %}
+        <table>
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
